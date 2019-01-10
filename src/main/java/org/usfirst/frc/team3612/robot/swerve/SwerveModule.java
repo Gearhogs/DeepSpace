@@ -25,16 +25,12 @@ public class SwerveModule extends Subsystem {
     public SwerveModule(int drive, int rotate, int encoderValue, SwervePosition pos) {
     	driveMotor = new TalonSRX(drive);
     	rotateMotor = new TalonSRX(rotate);
-    	
     	rotateMotor.configSelectedFeedbackSensor(FeedbackDevice.PulseWidthEncodedPosition, 0, 0);
-    	rotateMotor.
     	//rotateMotor.configForwardSoftLimitThreshold((int) Conversion.DegreesToTicks(-180) + offset, 10);
     	//rotateMotor.configReverseSoftLimitThreshold((int) Conversion.DegreesToTicks(180) + offset, 10);
     	//rotateMotor.configForwardSoftLimitEnable(true);
     	//rotateMotor.configReverseSoftLimitEnable(true);
-    	rotateMotor.set(ControlMode.Position, offset);
-    	
-    	
+		rotateMotor.set(ControlMode.Position, offset);
     	//offset = encoderValue;
     	offset = rotateMotor.getSensorCollection().getPulseWidthPosition();
     	setPosition(pos);
@@ -85,7 +81,9 @@ public class SwerveModule extends Subsystem {
 			return null;
 		}
 	}
-
+	public boolean getLimitSwitch() {
+		
+	}
 	public void setPosition(SwervePosition position) {
 		this.position = position;
 	}
