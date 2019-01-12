@@ -1,2 +1,0 @@
-# DeepSpace
-Code for DeepSpace
